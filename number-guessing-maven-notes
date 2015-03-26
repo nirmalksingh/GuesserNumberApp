@@ -1,0 +1,44 @@
+0.)
+cd into workspace or mkdir for project folder
+
+1.)
+mvn archetype:generate -DgroupId=com.nirmalksingh.algo.bnry.numberguesser -DartifactId=GuesserNumberApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+2.)
+cd into the folder named as artifactID
+mvn eclipse:eclipse
+
+3.)
+File->import->Select Existing Project Into Workspace
+ the project in eclipse as existing project and give the path to the artifactId from above.
+Add the following plugin for maven compiler in pom.xml
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	
+4.)
+Add the following dependency in pox.xml
+<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+5.)
+Add source files to the project in eclipse
+run the following command from the same present directory (as in #2 above)
+mvn package
